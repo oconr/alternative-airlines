@@ -1,0 +1,23 @@
+$breakpoints: (
+    'sm': (min-width: 640px),
+    'md': (min-width: 768px),
+    'lg': (min-width: 1024px),
+    'xl': (min-width: 1280px),
+    '2xl': (min-width: 1536px),
+) !default;
+
+@mixin breakpoint($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Unknown breakpoint: #{$breakpoint}. Please use one of #{map-keys($breakpoints)}."
+    }
+}
+
+$navGrey: #636363;
+$blue: #005AA9;
+$darkBlue: #091A4B;

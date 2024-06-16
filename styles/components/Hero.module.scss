@@ -1,0 +1,160 @@
+@import '../global.scss';
+
+.hero {
+    display: flex;
+    width: 100dvw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    .wrapper {
+        display: flex;
+        padding: 2rem;
+        flex-direction: column;
+        width: 100%;
+        @include breakpoint('sm') {
+            padding: 4rem 2rem;
+        }
+        h1 {
+            color: $darkBlue;
+            text-align: center;
+            font-size: 1.5rem;
+            text-wrap: pretty;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: $darkBlue;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        .score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+            img {
+                height: 20px;
+                width: auto;
+            }
+            .rating {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 7px;
+                margin-top: 0.5rem;
+                p {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: $darkBlue;
+                    span {
+                        font-weight: 500;
+                    }
+                }
+                .divider {
+                    height: 50%;
+                    width: 1px;
+                    background: $darkBlue;
+                    opacity: 0.2;
+                }
+            }
+        }
+        form {
+            background: #ffffff;
+            padding: 1rem;
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            border-radius: 1rem;
+            .outerInputWrapper {
+                display: flex;
+                flex-direction: column;
+                @include breakpoint('xl') {
+                    flex-direction: row;
+                    gap: 0.5rem;
+                }
+                .innerInputWrapper {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    @include breakpoint('md') {
+                        gap: 0.5rem;
+                        flex-direction: row;
+                    }
+                }
+                .inputWrapper {
+                    flex: 1;
+                }
+            }
+            .types {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                button {
+                    all: unset;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    height: 42px;
+                    flex: 1;
+                    border-radius: 0.5rem;
+                    font-size: 1rem;
+                    text-align: center;
+                    cursor: pointer;
+                    color: rgba(0, 0, 0, 0.7);
+                    transition: .15s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    @include breakpoint('sm') {
+                        flex: 0;
+                        text-wrap: nowrap;
+                        padding: 0 1rem;
+                    }
+                    &.active {
+                        background: $blue;
+                        color: #ffffff;
+                    }
+                }
+                .direct {
+                    display: none;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: end;
+                    gap: 10px;
+                    flex: 1;
+                    @include breakpoint('sm') {
+                        display: flex;
+                    }
+                    span {
+                        opacity: 0.6;
+                        font-size: 1rem;
+                    }
+                    .switch {
+                        height: 1.5rem;
+                        background: rgba(0, 0, 0, 0.15);
+                        width: 2.7rem;
+                        border-radius: 1rem;
+                        padding: 0.2rem;
+                        display: flex;
+                        cursor: pointer;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                        .slide {
+                            height: 1.1rem;
+                            width: 1.1rem;
+                            background: #ffffff;
+                            transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                            border-radius: 50%;
+                        }
+                    }
+                    &.active {
+                        .switch {
+                            background: $blue;
+                            .slide {
+                                margin-left: calc(2.7rem - 1.1rem - 0.4rem);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

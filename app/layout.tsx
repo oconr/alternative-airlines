@@ -1,8 +1,50 @@
+import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
+import {
+  ColorSchemeScript,
+  MantineColorsTuple,
+  MantineProvider,
+  createTheme,
+} from "@mantine/core";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Poppins({ weight: ["300", "400", "500"], subsets: ["latin"] });
+
+const aaBlue: MantineColorsTuple = [
+  "#ebf5ff",
+  "#d5e8fa",
+  "#a5d0f7",
+  "#73b6f6",
+  "#4fa0f5",
+  "#3c93f5",
+  "#328cf6",
+  "#2779dc",
+  "#1c6bc4",
+  "#005cad",
+];
+
+const aaDarkBlue: MantineColorsTuple = [
+  "#edf1fd",
+  "#d7def5",
+  "#aabaec",
+  "#7b94e5",
+  "#5574df",
+  "#3e60dd",
+  "#3256dd",
+  "#2647c4",
+  "#1f3eb0",
+  "#13369b",
+];
+
+const theme = createTheme({
+  colors: {
+    aaBlue,
+    aaDarkBlue,
+  },
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +58,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <ColorSchemeScript forceColorScheme="light" />
+      </head>
+      <body className={font.className}>
+        <MantineProvider theme={theme}>
+          <Header />
+          {children}
+        </MantineProvider>
+      </body>
     </html>
   );
 }

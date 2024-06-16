@@ -1,0 +1,109 @@
+@import '../global.scss';
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 49;
+    height: 6rem;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    overflow: hidden;
+    &.active {
+        height: 100dvh;
+        @include breakpoint('lg') {
+            height: 6rem;
+        }
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 6rem;
+        @include breakpoint('lg') {
+            flex-direction: row;
+        }
+        .row {
+            box-sizing: border-box;
+            padding: 2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .logo {
+                width: auto;
+                height: 2rem;
+                @include breakpoint('md') {
+                    height: 2.5rem;
+                }
+            }
+            button {
+                all: unset;
+                height: 30px;
+                width: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $blue;
+                @include breakpoint('lg') {
+                    display: none;
+                }
+            }
+        }
+        nav {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0 2rem;
+            box-sizing: border-box;
+            @include breakpoint('lg') {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            ul {
+                color: $navGrey;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                @include breakpoint('lg') {
+                    flex-direction: row;
+                    gap: 1.5rem;
+                }
+                li {
+                    height: 3rem;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    gap: 5px;
+                    cursor: pointer;
+                    @include breakpoint('lg') {
+                        position: relative;
+                        height: 6rem;
+                        overflow: hidden;
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            height: 2px;
+                            border-radius: 1px;
+                            width: 100%;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background: $blue;
+                            opacity: 0;
+                            transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                            margin-left: -100%;
+                        }
+                        &:hover {
+                            &::after {
+                                opacity: 1;
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

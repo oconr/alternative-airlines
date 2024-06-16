@@ -1,0 +1,322 @@
+@import '../global.scss';
+
+.location {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.7rem;
+    gap: 0.7rem;
+    position: relative;
+    user-select: none;
+    @include breakpoint('sm') {
+        flex-direction: row;
+        gap: 0;
+    }
+    .switcher {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        height: 2rem;
+        width: 2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        display: none;
+        z-index: 2;
+        cursor: pointer;
+        color: $darkBlue;
+        @include breakpoint('sm') {
+            display: flex;
+        }
+    }
+    .input {
+        display: flex;
+        flex-direction: row;
+        height: 4.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        position: relative;
+        label {
+            position: absolute;
+            padding: 1rem;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            opacity: 0.6;
+            transform-origin: top left;
+            pointer-events: all;
+            &.active {
+                transform: scale(0.7) translate(0, -0.5rem);
+                padding: 1rem 1.4rem;
+                pointer-events: none;
+            }
+        }
+        span {
+            position: relative;
+            padding: 1rem;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            transform: translate(0, 0.4rem);
+            pointer-events: none;
+            opacity: 0;
+            &.active {
+                pointer-events: all;
+                opacity: 1;
+            }
+        }
+        @include breakpoint('sm') {
+            flex: 1;
+            &:first-child {
+                border-radius: 0.5rem 0 0 0.5rem;
+            }
+            &:last-child {
+                border-radius: 0 0.5rem 0.5rem 0;
+                border-left: none;
+                label {
+                    padding-left: 2rem;
+                    &.active {
+                        padding-left: 2.8rem;
+                    }
+                }
+                span {
+                    padding-left: 2rem;
+                }
+            }
+        }
+        .dropdown {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            left: 0;
+            z-index: 2;
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+            opacity: 0;
+            margin-top: 5px;
+            pointer-events: none;
+            &.active {
+                pointer-events: all;
+                opacity: 1;
+            }
+            p {
+                padding: 1rem;
+                text-align: center;
+                opacity: 0.6;
+            }
+            ul {
+                list-style: none;
+                box-sizing: border-box;
+                padding: 1rem 0;
+                display: flex;
+                flex-direction: column;
+                li {
+                    margin: 0 0.5rem;
+                    border-radius: 0.25rem;
+                    box-sizing: border-box;
+                    padding: 0.5rem 1rem;
+                    cursor: pointer;
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dates {
+    display: flex;
+    flex-direction: row;
+    height: 4.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    position: relative;
+    margin-top: 0.7rem;
+    .label {
+        position: absolute;
+        padding: 1rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        opacity: 0.6;
+        transform-origin: top left;
+        pointer-events: all;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &.active {
+            transform: scale(0.7) translate(0, -0.5rem);
+            padding: 1rem 1.4rem;
+            pointer-events: none;
+            width: calc(100% / 70 * 100);
+        }
+    }
+    span {
+        position: relative;
+        padding: 1rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        transform: translate(0, 0.4rem);
+        pointer-events: none;
+        line-height: 1rem;
+        opacity: 0;
+        &.active {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+    .dropdown {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        z-index: 2;
+        box-sizing: border-box;
+        border-radius: 0.5rem;
+        opacity: 0;
+        margin-top: 5px;
+        pointer-events: none;
+        padding: 1rem;
+        transform: translate(-50%, 0);
+        &.active {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+}
+
+.passengers {
+    display: flex;
+    flex-direction: row;
+    height: 4.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    position: relative;
+    margin-top: 0.7rem;
+    .label {
+        position: absolute;
+        padding: 1rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        opacity: 0.6;
+        transform-origin: top left;
+        pointer-events: all;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &.active {
+            transform: scale(0.7) translate(0, -0.5rem);
+            padding: 1rem 1.4rem;
+            pointer-events: none;
+            width: calc(100% / 70 * 100);
+        }
+    }
+    span {
+        position: relative;
+        padding: 1rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        transform: translate(0, 0.4rem);
+        line-height: 1rem;
+        pointer-events: none;
+        opacity: 0;
+        &.active {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+    .dropdown {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        z-index: 2;
+        box-sizing: border-box;
+        border-radius: 0.5rem;
+        opacity: 0;
+        margin-top: 5px;
+        pointer-events: none;
+        padding: 1.5rem 2rem;
+        transform: translate(-50%, 0);
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        &.active {
+            pointer-events: all;
+            opacity: 1;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            &:last-child {
+                gap: 5px;
+                margin-top: 0.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            .button {
+                height: 2rem;
+                width: 2rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                cursor: pointer;
+                &:hover {
+                    border: 1px solid $blue;
+                    background: $blue;
+                    color: #ffffff;
+                }
+            }
+            .badge {
+                text-wrap: nowrap;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                height: 30px;
+                display: flex;
+                align-items: center;
+                border-radius: 15px;
+                padding: 0 1rem;
+                cursor: pointer;
+                font-size: 0.9rem;
+                &.active {
+                    background: $blue;
+                    border: 1px solid $blue;
+                    color: white;
+                }
+            }
+        }
+    }
+}
