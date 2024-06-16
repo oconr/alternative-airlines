@@ -125,7 +125,7 @@
                     font-size: 0.9rem;
                     padding: 1rem 1.5rem;
                     border-radius: 0.75rem;
-                    transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: .2s cubic-bezier(0.215, 0.610, 0.355, 1);
                     @include breakpoint('md') {
                         display: flex;
                     }

@@ -121,7 +121,7 @@
                     text-align: center;
                     cursor: pointer;
                     color: rgba(0, 0, 0, 0.7);
-                    transition: .15s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    transition: .15s cubic-bezier(0.215, 0.610, 0.355, 1);
                     @include breakpoint('sm') {
                         flex: 0;
                         text-wrap: nowrap;
@@ -157,12 +157,12 @@
                         flex-direction: row;
                         justify-content: flex-start;
                         align-items: center;
-                        transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                        transition: .2s cubic-bezier(0.215, 0.610, 0.355, 1);
                         .slide {
                             height: 1.1rem;
                             width: 1.1rem;
                             background: #ffffff;
-                            transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                            transition: .2s cubic-bezier(0.215, 0.610, 0.355, 1);
                             border-radius: 50%;
                         }
                     }

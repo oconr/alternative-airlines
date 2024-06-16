@@ -37,7 +37,7 @@
                 bottom: 0;
                 opacity: 0;
                 transform-origin: top center;
-                transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: .2s cubic-bezier(0.215, 0.610, 0.355, 1);
                 @include breakpoint('md') {
                     opacity: 1;
                 }
@@ -58,7 +58,7 @@
                 left: 0;
                 opacity: 0;
                 width: auto;
-                transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: .2s cubic-bezier(0.215, 0.610, 0.355, 1);
                 &:nth-child(1) {
                     opacity: 1;
                     height: 4rem;
