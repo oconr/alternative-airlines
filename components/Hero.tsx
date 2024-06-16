@@ -87,6 +87,7 @@ export default function Hero() {
                   <PassengerInput />
                 </div>
               </div>
+              <button>Search flights</button>
             </div>
           </form>
         </div>
